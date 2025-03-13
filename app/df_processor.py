@@ -1,4 +1,4 @@
-from typing import Any, Callable
+from typing import Any
 import re
 import pandas as pd
 from pandas import DataFrame
