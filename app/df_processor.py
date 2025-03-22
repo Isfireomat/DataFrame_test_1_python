@@ -19,7 +19,7 @@ class DFProcessor:
     @staticmethod
     def _calculate_profit(data: pd.DataFrame, df_id: int, year: int, prev: int, last_available: int) -> float:
         values = list(map(
-            lambda field_sign: DFProcessor._get_value(data, df_id, year, field_sign[0], prev, last_available) * field_sign[1],
+            lambda field_sign: np.float64(DFProcessor._get_value(data, df_id, year, field_sign[0], prev, last_available) * field_sign[1]),
             DFProcessor._calculate_fields.items()
         ))
         return np.nan if pd.isna(values[0]) else sum(values)
