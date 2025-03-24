@@ -32,7 +32,8 @@ class DFProcessor:
 
     @staticmethod
     def _get_company_age(data: pd.DataFrame, df_id: int, year: int) -> int:
-        return abs(pd.to_datetime(data.loc[df_id, 'Дата регистрации']).year - year)
+        company_age = year - pd.to_datetime(data.loc[df_id, 'Дата регистрации']).year
+        return company_age if company_age>0 else np.nan
 
     @staticmethod
     def _get_value(
